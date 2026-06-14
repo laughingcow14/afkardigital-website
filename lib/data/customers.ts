@@ -30,7 +30,6 @@ export const CUSTOMERS: Customer[] = [
   { name: "Convergent Technology", country: "KSA", sector: "Information Technology / Systems Integration", work: ["Cloud-based Thermal Commissioning Tool for Data Centers using Smart Wireless T/H Sensors & Gateways"] },
   { name: "NARC / Al Jaleel Society", country: "Jordan", sector: "Agriculture / Non-Profit Community Research", work: ["Designing an Anaerobic Digestion Biosolids (Scientific Research Project)"] },
   { name: "Almazraa Dairy", country: "Jordan", sector: "Food & Dairy / Agriculture", work: ["Smart Factory Monitoring System","Local & Cloud-based Monitoring","Water Level Monitoring","Water Flow Monitoring","Electricity Consumption Monitoring","Cold Rooms Temperature & Humidity Monitoring","Using own Manufactured Smart Gateways"] },
-  { name: "Customer X (Confidential)", country: "Jordan", sector: "Confidential", work: ["Smart Energy Saving System for A/C & Lights for 50 Offices, fully developed by Afkar Digital using their Cloud Platform","Integrated with Presence Detectors to switch off A/C units & Lights automatically when office is not occupied"] },
   { name: "Traklink", country: "Jordan", sector: "Technology / Tracking & Telematics", work: ["IoT / LoRaWAN Joint Projects"] },
   { name: "YKT", country: "Jordan", sector: "Industrial / Manufacturing", work: ["IoT-based Remote Control of Danfoss Motor Drive System"] },
 ];
