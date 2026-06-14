@@ -7,10 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const INFO = [
-  { label: "Phone", value: "+962-79-871-5260", sub: "Sun–Thu, 9:00–18:00 AST", icon: "phone" },
-  { label: "Email", value: "Info@afkardigital.com", sub: "Usually reply within one business day", icon: "mail" },
-  { label: "Office", value: "Al-Manhal Center", sub: "#105 Floor #3, Office #304 — Amman, Jordan", icon: "map" },
-  { label: "Hours", value: "Sun – Thu", sub: "9:00 AM – 6:00 PM (AST, UTC+3)", icon: "clock" },
+  { label: "Phone", value: "+962-79-871-5260", sub: "Sun–Thu, 9:00 AM – 6:00 PM AST", href: "tel:+962798715260", icon: "phone" },
+  { label: "WhatsApp", value: "+962-79-871-5260", sub: "Quick questions & photos welcome", href: "https://wa.me/962798715260", icon: "phone" },
+  { label: "Email", value: "Info@afkardigital.com", sub: "Usually reply within one business day", href: "mailto:Info@afkardigital.com", icon: "mail" },
+  { label: "Hours", value: "Sun – Thu", sub: "9:00 AM – 6:00 PM (AST, UTC+3)", href: undefined, icon: "clock" },
 ];
 
 const INQUIRIES = ["General inquiry", "Request a quote", "Product support", "Partnership / OEM", "Press & media", "Other"];
@@ -41,31 +41,31 @@ function Icon({ type }: { type: string }) {
 function MapCard() {
   return (
     <div style={{ background: "#fff", border: "1px solid var(--hairline)", borderRadius: 16, overflow: "hidden", height: "100%", minHeight: 280, display: "flex", flexDirection: "column" }}>
-      <div style={{ flex: 1, background: "var(--bg-subtle)", position: "relative", overflow: "hidden", minHeight: 220 }}>
-        <svg width="100%" height="100%" viewBox="0 0 500 240" preserveAspectRatio="xMidYMid slice" style={{ position: "absolute", inset: 0 }}>
-          <defs>
-            <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-              <path d="M 28 0 L 0 0 0 28" fill="none" stroke="var(--hairline)" strokeWidth="1"/>
-            </pattern>
-          </defs>
-          <rect width="500" height="240" fill="#f4f5f8"/>
-          <rect width="500" height="240" fill="url(#grid)"/>
-          <rect x="140" y="60" width="220" height="8" rx="4" fill="var(--hairline)" opacity="0.8"/>
-          <rect x="100" y="80" width="300" height="8" rx="4" fill="var(--hairline)" opacity="0.6"/>
-          <rect x="60" y="100" width="200" height="60" rx="6" fill="var(--hairline)" opacity="0.4"/>
-          <rect x="280" y="100" width="120" height="60" rx="6" fill="var(--hairline)" opacity="0.3"/>
-          <rect x="100" y="170" width="300" height="8" rx="4" fill="var(--hairline)" opacity="0.6"/>
-          <circle cx="250" cy="120" r="18" fill="var(--primary)" opacity="0.15"/>
-          <circle cx="250" cy="120" r="10" fill="var(--primary)" opacity="0.3"/>
-          <circle cx="250" cy="120" r="5" fill="var(--primary)"/>
-          <path d="M250 115 L250 100" stroke="var(--primary)" strokeWidth="1.5" strokeDasharray="3 2" opacity="0.6"/>
-          <rect x="196" y="74" width="108" height="22" rx="5" fill="white" stroke="var(--hairline)" strokeWidth="1"/>
-          <text x="250" y="89" textAnchor="middle" fill="var(--ink)" fontSize="10" fontFamily="var(--font-sans)" fontWeight="500">Al-Manhal Center</text>
-        </svg>
+      <div style={{ flex: 1, position: "relative", overflow: "hidden", minHeight: 220 }}>
+        <iframe
+          title="AFKAR DIGITAL office location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.5!2d35.8708546!3d32.0295085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c9f9e51bc2e3b%3A0xc6f386e24c66dcb8!2sAFKAR%20DIGITAL!5e0!3m2!1sen!2sjo!4v1"
+          width="100%"
+          height="100%"
+          style={{ border: 0, position: "absolute", inset: 0, minHeight: 220 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </div>
-      <div style={{ padding: "16px 20px", borderTop: "1px solid var(--hairline)" }}>
-        <div style={{ font: "500 13px/1.3 var(--font-sans)", color: "var(--ink)", marginBottom: 2 }}>Al-Manhal Center, Amman</div>
-        <div style={{ font: "400 12px/1.5 var(--font-sans)", color: "var(--steel)" }}>#105 Floor #3, Office #304 — Jordan</div>
+      <div style={{ padding: "16px 20px", borderTop: "1px solid var(--hairline)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div>
+          <div style={{ font: "500 13px/1.3 var(--font-sans)", color: "var(--ink)", marginBottom: 2 }}>Al-Manhal Center, Amman</div>
+          <div style={{ font: "400 12px/1.5 var(--font-sans)", color: "var(--steel)" }}>#105 Floor #3, Office #304 — Jordan</div>
+        </div>
+        <a
+          href="https://maps.google.com/?q=32.0295085,35.8708546"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ font: "500 12px/1 var(--font-sans)", color: "var(--primary)", textDecoration: "none", whiteSpace: "nowrap", marginLeft: 16 }}
+        >
+          Open in Maps →
+        </a>
       </div>
     </div>
   );
@@ -141,7 +141,14 @@ export default function ContactComponent() {
           </div>
           <div className="contact-cards" ref={cardsRef}>
             {INFO.map(item => (
-              <div key={item.label} className="info-card">
+              <a
+                key={item.label}
+                className="info-card"
+                href={item.href}
+                target={item.href?.startsWith("http") ? "_blank" : undefined}
+                rel={item.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 <div className="info-icon">
                   <Icon type={item.icon} />
                 </div>
@@ -150,7 +157,7 @@ export default function ContactComponent() {
                   <div className="info-value">{item.value}</div>
                   <div className="info-sub">{item.sub}</div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
