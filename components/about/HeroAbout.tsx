@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import HeroCanvas from "@/components/HeroCanvas";
+import SensorField from "@/components/SensorField";
 import { gsap } from "gsap";
 
 function MetricTile({ color, label, value, trend, up }: { color: string; label: string; value: string; trend: string; up: boolean }) {
@@ -77,7 +77,7 @@ function HeroDashboard() {
             <span style={{ width: 24, height: 24, borderRadius: 12, border: "2px solid rgba(10,21,48,0.78)", background: "linear-gradient(135deg, #d9f3e1, #2a9d99)", marginLeft: -8, display: "inline-block" }} />
           </div>
           <div>
-            <div style={{ font: "600 11px/1.2 var(--font-sans)", color: "#fff", letterSpacing: 0.5, textTransform: "uppercase" }}>Trusted by 27+ teams</div>
+            <div style={{ font: "600 11px/1.2 var(--font-sans)", color: "#fff", letterSpacing: 0.5, textTransform: "uppercase" }}>Trusted by 26+ teams</div>
             <div style={{ font: "500 10px/1.2 var(--font-sans)", color: "rgba(255,255,255,0.55)", marginTop: 2 }}>Data centers · Agri · Facilities</div>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function HeroAbout() {
 
   return (
     <section className="hero" ref={sectionRef}>
-      <HeroCanvas />
+      <SensorField />
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <div className="hero-grid">
           <div className="hero-copy">
@@ -128,7 +128,7 @@ export default function HeroAbout() {
             <div className="hero-stats" ref={statsRef} style={{ opacity: 0 }}>
               <div className="hero-stat"><div className="num">8+</div><div className="lbl">Years building IoT in Jordan and across the region</div></div>
               <div className="hero-stat"><div className="num">20+</div><div className="lbl">Years prior telecom &amp; electronics experience</div></div>
-              <div className="hero-stat"><div className="num">27</div><div className="lbl">Customers across data centers, agri, facilities</div></div>
+              <div className="hero-stat"><div className="num">26</div><div className="lbl">Customers across data centers, agri, facilities</div></div>
             </div>
           </div>
           <div ref={mediaRef} style={{ opacity: 0 }}>
