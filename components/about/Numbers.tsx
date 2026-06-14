@@ -7,10 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { num: 450, suf: "+", t: "Devices manufactured", d: "Connected devices made by AFKAR DIGITAL across active deployments." },
-  { num: 2.1, suf: "k", t: "3rd-party integrations", d: "Sensors, devices and actuators integrated through HudHud APIs." },
-  { num: 12, suf: "k", t: "Connected users", d: "End-customer users actively monitoring through our cloud platform." },
-  { num: 180, suf: "+", t: "IoT gateways", d: "Loggers and IoT gateways developed and shipped by AFKAR DIGITAL." },
+  { num: 900, suf: "+", t: "Automation devices deployed", d: "Connected automation devices deployed by AFKAR DIGITAL across active customer sites." },
+  { num: 500, suf: "+", t: "Connected sensors & actuators", d: "3rd-party sensors and actuators integrated through HudHud and our cloud APIs." },
+  { num: 100, suf: "+", t: "Connected customers' users", d: "End-customer users actively monitoring their facilities through our cloud platform." },
+  { num: 80, suf: "+", t: "IoT gateways", d: "IoT loggers and gateways designed and manufactured by AFKAR DIGITAL." },
 ];
 
 export default function Numbers() {
@@ -53,7 +53,7 @@ export default function Numbers() {
           {stats.map((s, i) => (
             <div key={s.t} className="num-card">
               <div className="num">
-                <span ref={el => { numRefs.current[i] = el; }}>0</span>
+                <span ref={el => { numRefs.current[i] = el; }}>{s.num % 1 !== 0 ? s.num.toFixed(1) : s.num}</span>
                 <span className="suf">{s.suf}</span>
               </div>
               <h4>{s.t}</h4>
